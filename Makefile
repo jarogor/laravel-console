@@ -26,4 +26,4 @@ db: ## recreate database
 		docker-compose exec php-cli php artisan db:seed
 
 phpunit: ## execute project unit tests
-		docker-compose exec php-cli composer test-local
+		docker-compose exec php-cli php vendor/bin/phpunit
