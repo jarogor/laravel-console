@@ -1,0 +1,84 @@
+<?php
+
+namespace Ctl\Bootstrap;
+
+use Dotenv\Dotenv;
+use Dotenv\Exception\InvalidFileException;
+use Illuminate\Support\Env;
+use Symfony\Component\Console\Output\ConsoleOutput;
+
+class LoadEnvironmentVariables
+{
+    /**
+     * The directory containing the environment file.
+     *
+     * @var string
+     */
+    protected $filePath;
+
+    /**
+     * The name of the environment file.
+     *
+     * @var string|null
+     */
+    protected $fileName;
+
+    /**
+     * Create a new loads environment variables instance.
+     *
+     * @param string $path
+     * @param string|null $name
+     *
+     * @return void
+     */
+    public function __construct($path, $name = null)
+    {
+        $this->filePath = $path;
+        $this->fileName = $name;
+    }
+
+    /**
+     * Setup the environment variables.
+     *
+     * If no environment file exists, we continue silently.
+     */
+    public function bootstrap(): void
+    {
+        try {
+            $this->createDotenv()->safeLoad();
+        } catch (InvalidFileException $e) {
+            $this->writeErrorAndDie([
+                'The environment file is invalid!',
+                $e->getMessage(),
+            ]);
+        }
+    }
+
+    /**
+     * Create a Dotenv instance.
+     */
+    protected function createDotenv(): Dotenv
+    {
+        return Dotenv::create(
+            Env::getRepository(),
+            $this->filePath,
+            $this->fileName
+        );
+    }
+
+    /**
+     * Write the error information to the screen and exit.
+     *
+     * @param string[] $errors
+     */
+    protected function writeErrorAndDie(array $errors): void
+    {
+        $output = (new ConsoleOutput)->getErrorOutput();
+
+        foreach ($errors as $error) {
+            $output->writeln($error);
+        }
+
+        die(1);
+    }
+}
