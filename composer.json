@@ -1,6 +1,6 @@
 {
-    "name": "lk/ctl",
-    "license": "proprietary",
+    "name": "jarogor/laravel-console",
+    "license": "MIT",
     "require": {
         "php": "^7.3",
         "ext-json": "*",
