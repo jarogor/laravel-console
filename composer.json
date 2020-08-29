@@ -1,5 +1,6 @@
 {
     "name": "jarogor/laravel-console",
+    "description": "Laravel only console application.",
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
