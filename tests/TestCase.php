@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests;
+
 use Ctl\Application;
 use Ctl\Testing\TestCase as BaseTestCase;
 
