@@ -73,7 +73,7 @@ class LoadEnvironmentVariables
      */
     protected function writeErrorAndDie(array $errors): void
     {
-        $output = (new ConsoleOutput)->getErrorOutput();
+        $output = (new ConsoleOutput())->getErrorOutput();
 
         foreach ($errors as $error) {
             $output->writeln($error);

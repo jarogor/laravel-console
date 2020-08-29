@@ -60,7 +60,8 @@ class ConsoleServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerCommands(array_merge(
-            $this->commands, $this->devCommands
+            $this->commands,
+            $this->devCommands
         ));
     }
 
@@ -106,7 +107,6 @@ class ConsoleServiceProvider extends ServiceProvider
         });
     }
 
-
     /**
      * Register the command.
      */
@@ -150,7 +150,7 @@ class ConsoleServiceProvider extends ServiceProvider
     protected function registerMigrateFreshCommand(): void
     {
         $this->app->singleton('command.migrate.fresh', function () {
-            return new MigrateFreshCommand;
+            return new MigrateFreshCommand();
         });
     }
 
@@ -160,7 +160,7 @@ class ConsoleServiceProvider extends ServiceProvider
     protected function registerMigrateRefreshCommand(): void
     {
         $this->app->singleton('command.migrate.refresh', function () {
-            return new MigrateRefreshCommand;
+            return new MigrateRefreshCommand();
         });
     }
 

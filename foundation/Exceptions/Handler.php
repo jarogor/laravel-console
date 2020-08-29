@@ -90,7 +90,6 @@ class Handler implements ExceptionHandler
      */
     public function renderForConsole($output, Throwable $e)
     {
-        (new ConsoleApplication)->renderThrowable($e, $output);
+        (new ConsoleApplication())->renderThrowable($e, $output);
     }
-
 }

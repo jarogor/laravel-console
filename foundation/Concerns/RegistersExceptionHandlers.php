@@ -2,9 +2,9 @@
 
 namespace Ctl\Concerns;
 
+use Ctl\Exceptions\Handler;
 use ErrorException;
 use Illuminate\Contracts\Debug\ExceptionHandler;
-use Ctl\Exceptions\Handler;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\ErrorHandler\Error\FatalError;
 use Throwable;
@@ -67,7 +67,7 @@ trait RegistersExceptionHandlers
         $handler = $this->resolveExceptionHandler();
 
         $handler->report($e);
-        $handler->renderForConsole(new ConsoleOutput, $e);
+        $handler->renderForConsole(new ConsoleOutput(), $e);
     }
 
     /**

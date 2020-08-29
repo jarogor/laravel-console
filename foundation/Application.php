@@ -324,7 +324,7 @@ class Application extends Container implements \Illuminate\Contracts\Foundation\
     protected function registerConfigBindings(): void
     {
         $this->singleton('config', static function () {
-            return new ConfigRepository;
+            return new ConfigRepository();
         });
     }
 
@@ -337,7 +337,9 @@ class Application extends Container implements \Illuminate\Contracts\Foundation\
             $this->configure('app');
 
             return $this->loadComponent(
-                'database', [DatabaseServiceProvider::class], 'db'
+                'database',
+                [DatabaseServiceProvider::class],
+                'db'
             );
         });
     }
@@ -370,7 +372,7 @@ class Application extends Container implements \Illuminate\Contracts\Foundation\
     protected function registerFilesBindings(): void
     {
         $this->singleton('files', static function () {
-            return new Filesystem;
+            return new Filesystem();
         });
     }
 

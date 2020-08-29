@@ -5,6 +5,7 @@ namespace Ctl\Testing;
 use Ctl\Application;
 use Exception;
 use Illuminate\Contracts\Console\Kernel;
+use Illuminate\Contracts\Events;
 use Illuminate\Support\Facades\Facade;
 use Mockery;
 use PHPUnit\Framework\TestCase as BaseTestCase;
@@ -121,7 +122,9 @@ abstract class TestCase extends BaseTestCase
         $count = $this->app->make('db')->connection($onConnection)->table($table)->where($data)->count();
 
         self::assertGreaterThan(0, $count, sprintf(
-            'Unable to find row in database table [%s] that matched attributes [%s].', $table, json_encode($data)
+            'Unable to find row in database table [%s] that matched attributes [%s].',
+            $table,
+            json_encode($data)
         ));
 
         return $this;
@@ -155,7 +158,9 @@ abstract class TestCase extends BaseTestCase
         $count = $this->app->make('db')->connection($onConnection)->table($table)->where($data)->count();
 
         self::assertEquals(0, $count, sprintf(
-            'Found unexpected records in database table [%s] that matched attributes [%s].', $table, json_encode($data)
+            'Found unexpected records in database table [%s] that matched attributes [%s].',
+            $table,
+            json_encode($data)
         ));
 
         return $this;
@@ -174,7 +179,7 @@ abstract class TestCase extends BaseTestCase
     {
         $events = is_array($events) ? $events : func_get_args();
 
-        $mock = Mockery::spy(\Illuminate\Contracts\Events\Dispatcher::class);
+        $mock = Mockery::spy(Events\Dispatcher::class);
 
         $mock->shouldReceive('dispatch')->andReturnUsing(function ($called) use (&$events) {
             foreach ($events as $key => $event) {
@@ -206,7 +211,7 @@ abstract class TestCase extends BaseTestCase
      */
     protected function withoutEvents()
     {
-        $mock = Mockery::mock(\Illuminate\Contracts\Events\Dispatcher::class);
+        $mock = Mockery::mock(Events\Dispatcher::class);
 
         $mock->shouldReceive('dispatch');
 

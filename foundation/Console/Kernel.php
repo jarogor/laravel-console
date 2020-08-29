@@ -61,7 +61,8 @@ class Kernel implements KernelContract
     protected function defineConsoleSchedule(): void
     {
         $this->app->instance(
-            Schedule::class, $schedule = new Schedule
+            Schedule::class,
+            $schedule = new Schedule()
         );
 
         $this->schedule($schedule);
@@ -164,7 +165,8 @@ class Kernel implements KernelContract
             return $this->artisan = (new Artisan(
                 $this->app,
                 $this->app->make('events'),
-                $this->app->version())
+                $this->app->version()
+            )
             )
                 ->resolveCommands($this->getCommands());
         }
