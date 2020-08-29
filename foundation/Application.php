@@ -26,8 +26,7 @@ use Illuminate\View\ViewServiceProvider;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
 
-class Application extends Container
-    implements \Illuminate\Contracts\Foundation\Application
+class Application extends Container implements \Illuminate\Contracts\Foundation\Application
 {
     use Concerns\RegistersExceptionHandlers;
 
