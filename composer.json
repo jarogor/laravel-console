@@ -56,5 +56,14 @@
         ]
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "extra": {
+        "hooks": {
+            "pre-commit": [
+                "echo Committing as $(git config user.name)",
+                "sh .maintenance/git/pre-commit"
+            ],
+            "post-merge": "composer install"
+        }
+    }
 }

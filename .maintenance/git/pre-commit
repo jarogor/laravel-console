@@ -1,0 +1,37 @@
+#!/bin/sh
+
+HAS_PHP_CS_FIXER=false
+PHP_CS_FIXER_LOCAL="vendor/bin/php-cs-fixer"
+PHP_CS_FIXER_GLOBAL=$(command -v php-cs-fixer 2>/dev/null)
+
+GREEN='\e[32m'
+YELLOW='\e[33m'
+NO_COLOR='\e[0m'
+
+if [ -x "$PHP_CS_FIXER_GLOBAL" ]; then
+    HAS_PHP_CS_FIXER=true
+    PHP_CS_FIXER=${PHP_CS_FIXER_GLOBAL}
+fi
+
+if [ -x "$PHP_CS_FIXER_LOCAL" ]; then
+    HAS_PHP_CS_FIXER=true
+    PHP_CS_FIXER=${PHP_CS_FIXER_LOCAL}
+fi
+
+if ${HAS_PHP_CS_FIXER}; then
+    echo "${GREEN}[PHP-CS-FIXER]${NO_COLOR} Pre commit hook start."
+
+    git diff-index --name-status --cached HEAD -- |
+        grep -e '[AM]\s*.*\.php$' |
+        cut -c3- |
+        cut -d' ' -f3 |
+        while read -r line; do
+            ${PHP_CS_FIXER} fix --verbose --show-progress=estimating "$line"
+            git add "$line"
+        done
+
+    echo "${GREEN}[PHP-CS-FIXER]${NO_COLOR} Pre commit hook finish."
+else
+    echo "${YELLOW}Please install 'php-cs-fixer':${NO_COLOR}"
+    echo "${YELLOW}composer global require friendsofphp/php-cs-fixer${NO_COLOR}"
+fi
