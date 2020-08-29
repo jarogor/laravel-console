@@ -29,9 +29,9 @@ final class Example extends Command
      */
     public function handle(): int
     {
-        $table = ($this->input->getArgument('name'));
+        $name = ($this->input->getArgument('name'));
 
-        $this->output->success($table);
+        $this->output->success($name);
 
         return Command::SUCCESS;
     }
