@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Console;
 
-use App\Console\Commands\LogProcessor;
+use App\Console\Commands\Example;
 use Illuminate\Console\Scheduling\Schedule;
 use Ctl\Console\Kernel as ConsoleKernel;
 
@@ -14,7 +16,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        LogProcessor::class
+        Example::class,
     ];
 
     /**
@@ -24,6 +26,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-
+        //
     }
 }

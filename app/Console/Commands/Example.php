@@ -1,33 +1,35 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class LogProcessor extends Command
+final class Example extends Command
 {
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $signature = 'app:log-processor {table}';
+    protected $signature = 'app:example {name}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Seed the database with records';
+    protected $description = 'Example command';
 
     /**
      * Execute the console command.
      *
      * @return int
      */
-    public function handle()
+    public function handle(): int
     {
-        $table = ($this->input->getArgument('table'));
+        $table = ($this->input->getArgument('name'));
 
         $this->output->success($table);
 
