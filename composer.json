@@ -67,7 +67,8 @@
         ],
         "post-update-cmd": [
             "vendor/bin/cghooks update"
-        ]
+        ],
+        "test": "vendor/bin/phpunit"
     },
     "extra": {
         "hooks": {
