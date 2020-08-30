@@ -1,8 +1,7 @@
 <?php
 
-namespace Ctl;
+namespace LaravelConsole;
 
-use Ctl\Console\ConsoleServiceProvider;
 use ErrorException;
 use Illuminate\Cache\CacheServiceProvider;
 use Illuminate\Config\Repository as ConfigRepository;
@@ -23,6 +22,7 @@ use Illuminate\Support\Str;
 use Illuminate\Translation\TranslationServiceProvider;
 use Illuminate\Validation\ValidationServiceProvider;
 use Illuminate\View\ViewServiceProvider;
+use LaravelConsole\Console\ConsoleServiceProvider;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ctl\Exceptions;
+namespace LaravelConsole\Exceptions;
 
 use Exception;
 use Illuminate\Contracts\Debug\ExceptionHandler;

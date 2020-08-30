@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Console;
 
 use App\Console\Commands\Example;
-use Ctl\Console\Kernel as ConsoleKernel;
 use Illuminate\Console\Scheduling\Schedule;
+use LaravelConsole\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {

@@ -2,8 +2,8 @@
 
 namespace Tests;
 
-use Ctl\Application;
-use Ctl\Testing\TestCase as BaseTestCase;
+use LaravelConsole\Application;
+use LaravelConsole\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Ctl\Concerns;
+namespace LaravelConsole\Concerns;
 
-use Ctl\Exceptions\Handler;
 use ErrorException;
 use Illuminate\Contracts\Debug\ExceptionHandler;
+use LaravelConsole\Exceptions\Handler;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\ErrorHandler\Error\FatalError;
 use Throwable;

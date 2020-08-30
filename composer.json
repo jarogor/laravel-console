@@ -41,7 +41,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Ctl\\": "foundation/",
+            "LaravelConsole\\": "foundation/",
             "App\\": "app/"
         },
         "files": [

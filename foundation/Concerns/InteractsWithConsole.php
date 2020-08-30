@@ -1,6 +1,6 @@
 <?php
 
-namespace Ctl\Concerns;
+namespace LaravelConsole\Concerns;
 
 use Illuminate\Console\OutputStyle;
 use Illuminate\Contracts\Console\Kernel;

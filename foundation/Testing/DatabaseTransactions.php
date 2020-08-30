@@ -1,6 +1,6 @@
 <?php
 
-namespace Ctl\Testing;
+namespace LaravelConsole\Testing;
 
 trait DatabaseTransactions
 {

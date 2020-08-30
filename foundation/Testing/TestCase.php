@@ -1,12 +1,12 @@
 <?php
 
-namespace Ctl\Testing;
+namespace LaravelConsole\Testing;
 
-use Ctl\Application;
 use Exception;
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Contracts\Events;
 use Illuminate\Support\Facades\Facade;
+use LaravelConsole\Application;
 use Mockery;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 

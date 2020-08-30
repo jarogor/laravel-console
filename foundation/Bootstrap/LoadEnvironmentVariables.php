@@ -1,6 +1,6 @@
 <?php
 
-namespace Ctl\Bootstrap;
+namespace LaravelConsole\Bootstrap;
 
 use Dotenv\Dotenv;
 use Dotenv\Exception\InvalidFileException;

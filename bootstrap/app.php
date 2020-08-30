@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$environment = new Ctl\Bootstrap\LoadEnvironmentVariables(
+$environment = new LaravelConsole\Bootstrap\LoadEnvironmentVariables(
     dirname(__DIR__)
 );
 $environment->bootstrap();
@@ -14,7 +14,7 @@ date_default_timezone_set(
 /*
  * Create The Application
  */
-$application = new Ctl\Application(
+$application = new LaravelConsole\Application(
     dirname(__DIR__)
 );
 
@@ -26,7 +26,7 @@ $application->withEloquent();
  */
 $application->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    Ctl\Exceptions\Handler::class
+    LaravelConsole\Exceptions\Handler::class
 );
 
 $application->singleton(

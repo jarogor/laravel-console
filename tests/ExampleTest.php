@@ -3,9 +3,9 @@
 namespace Tests;
 
 use App\Console\Commands\Example;
-use Ctl\Concerns\InteractsWithConsole;
-use Ctl\Testing\WithFaker;
 use Illuminate\Console\Command;
+use LaravelConsole\Concerns\InteractsWithConsole;
+use LaravelConsole\Testing\WithFaker;
 
 class ExampleTest extends TestCase
 {

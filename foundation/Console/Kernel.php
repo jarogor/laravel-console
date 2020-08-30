@@ -1,14 +1,14 @@
 <?php
 
-namespace Ctl\Console;
+namespace LaravelConsole\Console;
 
-use Ctl\Application;
-use Ctl\Exceptions\Handler;
 use Illuminate\Console\Application as Artisan;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Console\Scheduling\ScheduleRunCommand;
 use Illuminate\Contracts\Console\Kernel as KernelContract;
 use Illuminate\Contracts\Debug\ExceptionHandler;
+use LaravelConsole\Application;
+use LaravelConsole\Exceptions\Handler;
 use RuntimeException;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

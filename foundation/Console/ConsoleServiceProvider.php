@@ -1,6 +1,6 @@
 <?php
 
-namespace Ctl\Console;
+namespace LaravelConsole\Console;
 
 use Illuminate\Cache\Console\CacheTableCommand;
 use Illuminate\Cache\Console\ClearCommand as CacheClearCommand;

@@ -11,7 +11,7 @@ if (! function_exists('app')) {
      *
      * @param  string|null  $make
      * @param  array  $parameters
-     * @return mixed|\Ctl\Application
+     * @return mixed|\LaravelConsole\Application
      */
     function app($make = null, array $parameters = [])
     {
