@@ -2,7 +2,7 @@
 
 Simple only console application:
 - based on Lumen foundation
-- without http handle
+- without http processing
 - without jobs queue
 
 Base to start development.
