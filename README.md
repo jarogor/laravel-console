@@ -18,3 +18,7 @@ Power off:
 ```bash
 make stop
 ```
+
+## UPD:
+
+Better to use: https://laravel-zero.com/
